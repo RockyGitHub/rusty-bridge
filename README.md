@@ -72,6 +72,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+> :warning: If you are interested in this project, please contact me. I am not supporting it or working on it further at the moment, and it likely may not compile without some configuration first as I stopped working on it, mid-changes.
+
 This project is not currently in development, but it's here for my own review or others to review as there were many fun techniques used to implement abstraction and maintain speed. It is not finished but I lost interest in continuing it further for now. It likely won't compile right away either. If you are interested in this project, feel free to contact me.
 
 Rusty-Bridge is a program to build flexible data transformations and sending from point A to point B. It is built to be highly modular. It can be built to accept data from any source, and to send it to any destination. In between, it can be configured to work with all kinds of data transforms, message persistence, metrics viewing, configuration strategy, and more.

@@ -1,0 +1,17 @@
+[package]
+name = "edge_report_listener"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = {version = "0.7.5", features = ["macros"]}
+serde = { version = "1.0.198", features = ["derive"]}
+serde_json = { version = "1.0.116"}
+tokio = { version = "1.37.0", features = ["full"]}
+tower = { version = "0.4.13", features = ["full"]}
+tower-http = { version = "0.5.2", features = ["full"]}
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+
+[workspace]
+# required so this doesn't believe it's in the project workspace

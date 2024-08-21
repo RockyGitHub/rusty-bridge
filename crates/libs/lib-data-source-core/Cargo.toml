@@ -1,0 +1,12 @@
+[package]
+name = "data-source-core"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-trait = { workspace = true }
+# including tokio for the tx/rx of new data. but if I learn how to manage that on my own, tokio doesn't need to be included here anymore
+tokio = { workspace = true }
+thiserror = { workspace = true }

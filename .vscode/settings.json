@@ -1,0 +1,17 @@
+{
+    "editor.formatOnSave": true,
+    "rust-analyzer.cargo.noDefaultFeatures": true,
+    "rust-analyzer.cargo.features": [
+        //"data-source/dev",
+        //"data-source/special",
+        "data-source/http-rest",
+        "mini-config/dev",
+        //"cloud-adapter/dev",
+        "cloud-adapter/special-hivemq",
+        "msg-transforms/dev",
+        "msg-persistence/dev",
+        "rusty-bridge/data-server",
+        //"mini-config/dev",
+        "mini-config/special",
+    ],
+}

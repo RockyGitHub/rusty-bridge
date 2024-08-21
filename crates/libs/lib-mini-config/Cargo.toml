@@ -1,0 +1,20 @@
+[package]
+name = "mini-config"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mini-config-core = { path = "../../libs/lib-mini-config-core" }
+
+# Optional
+mini-config-dev = { path = "../../libs/lib-mini-config-dev", optional = true }
+mini-config-special = { path = "../../libs/lib-mini-config-special", optional = true }
+
+[features]
+default = ["dev"]
+dev = ["dep:mini-config-dev"]
+special = ["dep:mini-config-special"]
+
+
+[lints]
+workspace = true

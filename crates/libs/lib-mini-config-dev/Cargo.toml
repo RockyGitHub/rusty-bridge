@@ -1,0 +1,15 @@
+[package]
+name = "mini-config-dev"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+toml = "0.8.8"
+mini-config-core = { path = "../../libs/lib-mini-config-core" }
+async-trait = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+tracing.workspace = true
+
+[lints]
+workspace = true

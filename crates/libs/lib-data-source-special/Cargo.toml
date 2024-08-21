@@ -1,0 +1,13 @@
+[package]
+name = "data-source-special"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+data-source-core = { path = "../../libs/lib-data-source-core" }
+async-trait = { workspace = true }
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true

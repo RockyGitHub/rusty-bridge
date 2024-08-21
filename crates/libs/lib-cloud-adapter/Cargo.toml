@@ -1,0 +1,24 @@
+[package]
+name = "cloud-adapter"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cloud-adapter-core = { path = "../../libs/lib-cloud-adapter-core" }
+data-source-core = { path = "../../libs/lib-data-source-core" }
+enum_dispatch = { version = "0.3.12" }
+tokio = { workspace = true, features = ["full", "tracing"] }
+tokio-util = { workspace = true }
+
+# Optional
+special-hivemq = { path = "../../libs/lib-cloud-adapter-special-hivemq", optional = true }
+special-iothub = { path = "../../libs/lib-cloud-adapter-special-iothub", optional = true }
+connector-dev = { path = "../../libs/lib-cloud-adapter-dev", optional = true }
+
+[features]
+#default = ["dev"]
+dev = ["dep:connector-dev"]
+special-hivemq = ["dep:special-hivemq"]
+special-iothub = ["dep:special-iothub"]

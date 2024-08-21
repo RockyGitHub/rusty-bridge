@@ -1,0 +1,29 @@
+[package]
+name = "special-ana"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+url = "2.5.0"
+reqwest = { version = "0.12.2", features = ["json"] }
+jsonwebtoken = { version = "9.2.0" }
+#pin-project = "1.1.5"
+tokio = { workspace = true, features = ["full"] }
+tokio-util = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing.workspace = true
+
+[dev-dependencies]
+tracing-subscriber = "0.3.18"
+
+[[example]]
+name = "get_token"
+path = "examples/get_token.rs"
+
+[[example]]
+name = "token_auto_renew"
+path = "examples/token_auto_renew.rs"

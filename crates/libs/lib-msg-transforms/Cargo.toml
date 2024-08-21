@@ -1,0 +1,17 @@
+[package]
+name = "msg-transforms"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+msg-transform-core = { path = "../../libs/lib-msg-transform-core" }
+# optional
+special-hivemq-transform = { path = "../../libs/lib-msg-transform-special-hivemq", optional = true }
+msg-transform-dev = { path = "../../libs/lib-msg-transform-dev", optional = true }
+
+[features]
+default = ["dev"]
+special-hivemq = ["dep:special-hivemq-transform"]
+dev = ["dep:msg-transform-dev"]

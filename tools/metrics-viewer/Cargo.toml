@@ -1,0 +1,48 @@
+[workspace]
+#members = ["egui_plot"]
+
+[package]
+name = "metrics-viewer"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.docs.rs]
+all-features = true
+targets = ["wasm32-unknown-unknown"]
+
+[dependencies]
+egui = "0.27.2"
+eframe = { version = "0.27.2", default-features = false, features = [
+    "accesskit",     # Make egui comptaible with screen readers. NOTE: adds a lot of dependencies.
+    "default_fonts", # Embed the default egui fonts.
+    "glow",          # Use the glow rendering backend. Alternative: "wgpu".
+    "persistence",   # Enable restoring app state when restarting the app.
+] }
+log = "0.4"
+# You only need serde if you want app persistence:
+serde = { version = "1.0.200", features = ["derive"] }
+serde_json = "1.0.116"
+ehttp = "0.5.0"        
+wasm-timer = "0.2.5"
+egui_logger = "0.4.4"
+reqwest = "0.12.4"
+#wasmtimer = "0.2.0"
+#tokio = { version = "1.37.0", default-features = false, features = ["time"] }
+
+# web:
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen-futures = "0.4"
+
+# You only need serde if you want app persistence:
+serde = { version = "1", features = ["derive"] }
+
+# Optimize all dependencies even in debug builds:
+[profile.dev.package."*"]
+opt-level = 2
+
+[patch.crates-io]
+
+# If you want to use the bleeding edge version of egui and eframe:
+# egui = { git = "https://github.com/emilk/egui", branch = "master" }
+# eframe = { git = "https://github.com/emilk/egui", branch = "master" }
+

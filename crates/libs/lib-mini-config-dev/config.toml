@@ -1,0 +1,38 @@
+# Used to deliver the configuration data as a development mode message bus
+
+# For Dev. Comment htis out and use a different one for some other source
+#[data_source]
+#ingress_rate_s = 1
+
+# For Special. Comment this out and use a different one for some other source
+#[data_source]
+#pub_endpoint = "tcp://192.168.56.102:8500"
+#sub_endpoint = "tcp://192.168.56.102:9501"
+#highwater_mark = 1000
+#topics = ["/raw/mqtt/manual_testing"]
+
+[data_source]
+bind_address = "127.0.0.1:9100"
+
+[north_adapter]
+username = "username"
+password = "password"
+ana_endpoint = "https://www.ana_endpoint.com"
+mqtt_endpoint = "wss://mqtt.mymqtt.cloud:443/mqtt"
+
+[edge_reporter]
+system_name = "development system"             # This should be set to a team's chosen choice and is used by the Edge Reporter
+endpoint = "http://127.0.0.1:8999/edge_report"
+interval_s = 60
+
+# not implemented yet
+[metrics_server]
+enabled = true
+
+# not implemented yet
+[persistence]
+enabled = true
+highwater_mb = 300
+
+#[file_uploader]
+#reserved = 0

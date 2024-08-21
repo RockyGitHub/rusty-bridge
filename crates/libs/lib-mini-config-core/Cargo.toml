@@ -1,0 +1,12 @@
+[package]
+name = "mini-config-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+serde = { version = "1.0.193", features = ["derive"] }
+
+[lints]
+workspace = true

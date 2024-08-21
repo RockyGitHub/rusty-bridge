@@ -1,0 +1,21 @@
+[package]
+name = "data-source"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+data-source-core = { path = "../../libs/lib-data-source-core" }
+async-trait = { workspace = true }
+
+# Optional
+data-source-dev = { path = "../../libs/lib-data-source-dev", optional = true }
+data-source-http-rest = { path = "../../libs/lib-data-source-http-rest", optional = true }
+data-source-mqtt = { path = "../../libs/lib-data-source-mqtt", optional = true }
+
+[features]
+#default = ["dev"]
+dev = ["dep:data-source-dev"]
+http-rest = ["dep:data-source-http-rest"]
+mqtt = ["dep:data-source-mqtt"]

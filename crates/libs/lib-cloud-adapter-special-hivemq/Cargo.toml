@@ -1,0 +1,30 @@
+[package]
+name = "special-hivemq"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rumqttc = { version = "0.24.0", features = ["websocket", "use-rustls"] }
+pin-project-lite = { version = "0.2.13" }                                           # cool idea if I want to eliminate returning Box<dyn DeliveryToken> and be more direct
+rustls-native-certs = "0.7.0"
+cloud-adapter-core = { path = "../lib-cloud-adapter-core" }
+data-source-core = { path = "../../libs/lib-data-source-core" }
+special-hivemq-transform = { path = "../../libs/lib-msg-transform-special-hivemq" }
+special-ana = { path = "../../libs/lib-special-ana" }
+# Workspace
+tracing = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true, features = ["full", "tracing"] }
+tokio-util = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+# Optional
+
+[dev-dependencies]
+tracing-subscriber = "0.3.18"
+
+
+[[example]]
+name = "publish"
+path = "examples/publish.rs"

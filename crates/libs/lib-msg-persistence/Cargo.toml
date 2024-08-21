@@ -1,0 +1,15 @@
+[package]
+name = "msg-persistence"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+persistence-dev = { path = "../../libs/lib-msg-persistence-dev", optional = true }
+persistence-sled = { path = "../../libs/lib-msg-persistence-sled", optional = true }
+
+[features]
+default = ["dev"]
+dev = ["dep:persistence-dev"]
+sled = ["dep:persistence-sled"]

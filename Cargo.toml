@@ -1,0 +1,61 @@
+# Enable these to minimize binary size. https://github.com/johnthagen/min-sized-rust
+# https://github.com/TimonPost/cargo-unused-features
+[profile.release]
+strip = true
+opt-level = "s"
+#opt-level = "z" # sometimes z or s is smaller
+lto = true        # Link Time Optimization - can help remove dead code
+codegen-units = 1 # This will reduce compilation time but allows for additional size opitmizations
+panic = "abort"   # Removes the helpful unwind stacktrace, but improves binary size
+# 912 KB -opt-level s
+
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+# unused = "allow" #only for experimental dev
+
+[workspace]
+resolver = "2"
+members = [
+    # -- Application Libraries
+    "crates/libs/lib-cloud-adapter",
+    "crates/libs/lib-cloud-adapter-core",
+    "crates/libs/lib-cloud-adapter-dev",
+    "crates/libs/lib-cloud-adapter-special-hivemq",
+    "crates/libs/lib-cloud-adapter-special-iothub",
+    "crates/libs/lib-data-source",
+    "crates/libs/lib-data-source-core",
+    "crates/libs/lib-data-source-dev",
+    #"crates/libs/lib-data-source-special",
+    "crates/libs/lib-data-source-http-rest",
+    "crates/libs/lib-mini-config",
+    "crates/libs/lib-mini-config-core",
+    "crates/libs/lib-mini-config-dev",
+    #"crates/libs/lib-mini-config-special",
+    "crates/libs/lib-msg-persistence",
+    "crates/libs/lib-msg-persistence-dev",
+    "crates/libs/lib-msg-persistence-sled",
+    "crates/libs/lib-msg-transform-core",
+    "crates/libs/lib-msg-transform-dev",
+    "crates/libs/lib-msg-transform-special-hivemq",
+    "crates/libs/lib-msg-transforms",
+    "crates/libs/lib-special-ana",
+    "crates/libs/lib-edge-reporter",
+
+    # -- Application Services
+    "crates/rusty-bridge",
+    "crates/libs/lib-data-source-mqtt",
+
+    # -- Tools
+    #"crates/libs/lib-data-view",
+]
+
+[workspace.dependencies]
+tracing = "0.1.40"
+thiserror = "1.0.58"
+tokio = "1.36.0"
+tokio-util = "0.7.10"
+async-trait = "0.1.78"
+enum_dispatch = { version = "0.3.12" }
+serde = "1.0.197"
+serde_json = "1.0.115"

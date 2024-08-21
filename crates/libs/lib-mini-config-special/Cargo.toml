@@ -1,0 +1,27 @@
+[package]
+name = "mini-config-special"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+toml = "0.8.8"
+mini-config-core = { path = "../../libs/lib-mini-config-core" }
+# north_adapter
+special-hivemq = { path = "../../libs/lib-cloud-adapter-special-hivemq" }
+special-iothub = { path = "../../libs/lib-cloud-adapter-special-iothub" }
+# data_source
+data-source-special = { path = "../../libs/lib-data-source-special" }
+#persistence
+persistence-sled = { path = "../../libs/lib-msg-persistence-sled" }
+#edge reporter
+edge-reporter = { path = "../../libs/lib-edge-reporter" }
+# other
+
+async-trait = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+
+[lints]
+workspace = true

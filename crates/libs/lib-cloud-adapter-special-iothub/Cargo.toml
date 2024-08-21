@@ -1,0 +1,13 @@
+[package]
+name = "special-iothub"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cloud-adapter-core = { path = "../../libs/lib-cloud-adapter-core" }
+data-source-core = { path = "../../libs/lib-data-source-core" }
+tracing = { workspace = true }
+tokio = { workspace = true, features = ["full", "tracing"] }
+async-trait = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
